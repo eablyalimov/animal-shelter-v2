@@ -1,0 +1,49 @@
+<div class="container pet-page">
+<h1 class="pet-page-heading">Hi, I'm {{data.name}}!</h1>
+<div class="carousel slide col-md-6 pet-img-container" id="petCarousel" data-ride="carousel">
+
+<ol class="carousel-indicators">
+    {{#each data.imageURL}}
+    <li data-target="#petCarousel" data-slide-to="{{@index}}" {{#if @first}} class="active"{{/if}}></li>
+    {{/each}}
+  </ol>
+
+    <div class="carousel-inner inner-container">
+        {{#each data.imageURL}}
+            <div class="item {{#if @first}}active{{/if}} inner-container">
+                <img src="../{{this}}" class="pet-img">
+            </div>
+        {{/each}}
+    
+    
+    </div>
+    
+    <a class="left carousel-control" href="#petCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#petCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+</div>
+    <div class="col-md-6">
+        <p class="pet-paragraph-style">My name is {{data.name}}.</p>
+        {{#trueFalse data.sprayedNeutred}}
+        <p class="pet-paragraph-style">I am Sprayed/Neutred.</p>
+        {{/trueFalse}}
+        <p class="pet-paragraph-style">The Shelter Staff thinks I am {{data.age}} old. </p>
+        <p class="pet-paragraph-style">I have been in shelter since {{data.formattedDateSinceInShelter}}</p>
+        <p class="pet-paragraph-style">Here's what shelter staff says about me:</p>
+<p class="pet-description">"{{data.description}}"</p>
+<p class="pet-paragraph-style" style="font-size: 17px;">If you wish to know more about me or give me a forever home, please use information below:</p>
+<p class="pet-paragraph-style" style="font-size: 17px;">Phone: <a class="pet-paragraph-style" href="tel:905-555-3312">905-555-3312</a></p>
+<p class="pet-paragraph-style" style="font-size: 17px;">Email: <a class="pet-paragraph-style" href="mailto:info@animalshelter.ca">info@animalshelter.ca</a></p>
+<p class="post-date">Date Posted: {{data.formattedPostedDate}}</p>
+<div class="container">
+    <a class="btn btn-default" href="../update-pet/{{data.petID}}">Update this pet</a>
+    <a class="btn btn-danger" href="../remove-pet/{{data.petID}}">Remove this pet</a>
+</div>
+    </div>
+</div>

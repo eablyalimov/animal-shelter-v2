@@ -1,0 +1,46 @@
+<title>Search</title>
+<div class="top-margin"></div>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+        <h1>Search</h1>
+    </div>
+</div>
+<form class="form-inline" method="get" action="/search-results">
+<fieldset>
+    <legend>Basic Information</legend>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        <label for="animalType">Animal Type:</label>
+        <br>
+        <select class="form-control" name="animalType" id="animalType">
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        <label for="age">Age:</label>
+        <input type="hidden" id="slider-min-val" name="sliderMinVal">
+        <input type="hidden" id="slider-max-val" name="sliderMaxVal">
+        <div id="slider">
+        </div>
+        <h5 class="col-md-6 col-xs-6" style="text-align:left" class="float-left" id="slider-lower"></h5>
+        <h5 class="col-md-6 col-xs-6" style="text-align:right" id="slider-upper"></h5>
+    </div>
+    <script></script>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        <label for="animalType">Sex:</label>
+        <br>
+        <select class="form-control" name="sex" id="sex">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Any">Any</option>
+        </select>
+    </div>
+</fieldset>
+<input type="submit" value="Search">
+</form>
+</div>
+
+
+

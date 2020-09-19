@@ -1,0 +1,76 @@
+<title>{{data.title}}</title>
+<div class="all-pets-container">
+<h1 class="text-centered all-pets-heading">{{petType}} available for adoption</h1>
+<div class="search-container">
+  <form class="form-inline" method="get" action="/all-{{petType}}">
+<fieldset>
+    <legend class="text-centered search-form-heading">Refine Search</legend>
+        <select class="form-control hidden-select" name="animalType" id="animalType">
+            <option value="Cat" {{#equal petType "Cats"}} selected {{/equal}}>Cat</option>
+            <option value="Dog" {{#equal petType "Dogs"}} selected {{/equal}}>Dog</option>
+        </select>
+    <div class="col-lg-2 col-lg-offset-4 col-md-3 col-md-offset-3 col-sm-4 col-sm-offset-2 col-xs-5 col-xs-offset-1">
+        <label for="age" class="age-label">Age:</label>
+        <br>
+        <select class="form-control min-age age-field" name="minAge" id="minAge" onchange="populateMaxAgeDD(this)">
+          <option value="0" {{#equal attr.minAge "0"}} selected {{/equal}}>0 years</option>
+          <option value="1" {{#equal attr.minAge "1"}} selected {{/equal}}>1 years</option>
+          <option value="2" {{#equal attr.minAge "2"}} selected {{/equal}}>2 years</option>
+          <option value="3" {{#equal attr.minAge "3"}} selected {{/equal}}>3 years</option>
+          <option value="4" {{#equal attr.minAge "4"}} selected {{/equal}}>4 years</option>
+          <option value="5" {{#equal attr.minAge "5"}} selected {{/equal}}>5 years</option>
+          <option value="6" {{#equal attr.minAge "6"}} selected {{/equal}}>6 years</option>
+          <option value="7" {{#equal attr.minAge "7"}} selected {{/equal}}>7 years</option>
+          <option value="8" {{#equal attr.minAge "8"}} selected {{/equal}}>8 years</option>
+          <option value="9" {{#equal attr.minAge "9"}} selected {{/equal}}>9 years</option>
+        </select>
+        to
+        <select class="form-control max-age age-field" name="maxAge" id="maxAge">
+          <option value="1" {{#equal attr.maxAge "1"}} selected {{/equal}}>1 years</option>
+          <option value="2" {{#equal attr.maxAge "2"}} selected {{/equal}}>2 years</option>
+          <option value="3" {{#equal attr.maxAge "3"}} selected {{/equal}}>3 years</option>
+          <option value="4" {{#equal attr.maxAge "4"}} selected {{/equal}}>4 years</option>
+          <option value="5" {{#equal attr.maxAge "5"}} selected {{/equal}}>5 years</option>
+          <option value="6" {{#equal attr.maxAge "6"}} selected {{/equal}}>6 years</option>
+          <option value="7" {{#equal attr.maxAge "7"}} selected {{/equal}}>7 years</option>
+          <option value="8" {{#equal attr.maxAge "8"}} selected {{/equal}}>8 years</option>
+          <option value="9" {{#equal attr.maxAge "9"}} selected {{/equal}}>9 years</option>
+          <option value="10" {{#equal attr.maxAge "10"}} selected {{/equal}} >10+ years</option>
+        </select>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+        <label for="animalType" class="sex-label">Sex:</label>
+        <br>
+        <select class="form-control sex-field" name="sex" id="sex">
+            <option value="Female"  {{#equal attr.sex "Female"}} selected {{/equal}}>Female</option>
+            <option value="Male" {{#equal attr.sex "Male"}} selected {{/equal}}>Male</option>
+            <option value="Any" {{#equal attr.sex "Any"}} selected {{/equal}}>Any</option>
+        </select>
+    </div>
+</fieldset>
+<input type="submit" class="search-btn" value="Search">
+</form>
+</div>
+<div class="container-fluid all-pets-container">
+{{#each data}}
+  <div class="col-xl-1 col-lg-2 col-md-4 col-sm-6 col-xs-12">
+    <a class="animal-link" href="../pet/{{petID}}">
+    <div class="well pet-card-container">
+      <div class="image-container">
+        {{#each imageURL}}
+        {{#if @first}}
+        <img src="../{{@this}}" class="all-pets-img">
+        {{/if}}
+        {{/each}}
+        </div>
+        <div class="pet-info">
+          <p>{{name}}</p>
+          <p>{{age}} old</p>
+          <p>{{sex}}</p>
+        </div>
+    </div>
+    </a>
+  </div>
+{{/each}}
+</div>
+</div>

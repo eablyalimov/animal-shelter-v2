@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Update Pet Information</h1>
+        </div>
+    </div>
+<form class="form-inline" method="post" action="/update-pet">
+<fieldset>
+    <legend>Information about {{data.name}}</legend>
+        <div class="col-md-12">
+            <label for="name">Name:</label>
+            <br>
+            <input type="text" class="form-control full-width" value="{{data.name}}" name="name">
+            <input type="hidden" value="{{data.petID}}" name="petID">
+        </div>
+
+        <div class="col-md-2">
+            <label for="bdate">Date of Birth: </label>
+            <input type="date" class="form-control" name="birthDate" value="{{data.birthDateForm}}">
+        </div>
+
+        <div class="col-md-2">
+            <label for="dateSinceInShelter">Date of Arrival: </label>
+            <input type="date" class="form-control" name="dateSinceInShelter" value="{{data.dateSinceInShelterForm}}">
+        </div>
+
+        <div class="col-md-1">
+            <label for="animalType">Pet Type: </label>
+            <br>
+            <select class="form-control" name="animalType" id="animalType">
+                <option value="Cat" {{#equal data.animalType "Cat"}} selected {{/equal}}>Cat</option>
+                <option value="Dog" {{#equal data.animalType "Dog"}} selected {{/equal}}>Dog</option>
+                <option value="Other" {{#equal data.animalType "Other"}} selected {{/equal}}>Other</option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label for="animalType">Gender: </label>
+            <br>
+            <select class="form-control" name="sex" id="sex">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+        </div>
+        
+        <div class="col-md-2">
+            <label for="sprayedNeutredCheckbox">Sprayed/Neutred: </label>
+            <br>
+            <input type="checkbox" class="form-control" {{#trueFalse data.sprayedNeutred}} checked {{/trueFalse}} name="sprayedNeutredCheckbox">
+        </div>
+        <div class="col-md-2">
+            <label for="sprayedNeutredCheckbox">Adopted: </label>
+            <br>
+            <input type="checkbox"  class="form-control" {{#trueFalse data.isAdopted}} checked {{/trueFalse}} name="adoptedCheckbox">
+        </div>
+        <div class="col-md-12">
+            <label for="description">Pet Description:</label>
+            <br>
+            <textarea class="form-control full-width" name="description" >{{data.description}}</textarea>
+        </div>
+</fieldset>
+<input type="submit" class="btn btn-success" value="Update">
+</form>
+</div>
+

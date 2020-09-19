@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add a Pet</h1>
+        </div>
+    </div>
+    <form class="form-inline" method="post" action="/add-pet" enctype="multipart/form-data">
+    <fieldset>
+        <legend>Basic Information</legend>
+        <div class="col-md-12">
+            <label for="name">Name:</label>
+            <br>
+            <input type="text" class="form-control full-width" name="name" required>
+        </div>
+
+        <div class="col-md-2">
+            <label for="bdate">Date of Birth:</label>
+            <br>
+            <input type="date" class="form-control" name="bday" required>
+        </div>
+        
+        <div class="col-md-2">
+            <label for="dateSinceInShelter">Date of Arrival</label>
+            <br>
+            <input type="date" class="form-control" name="dateSinceInShelter" required>
+        </div>
+
+        <div class="col-md-1">
+            <label for="animalType">Pet Type:</label>
+            <br>
+            <select class="form-control" name="animalType" id="animalType" required>
+                <option value="Cat">Cat</option>
+                <option value="Dog">Dog</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="col-md-2">
+            <label for="animalType">Gender:</label>
+            <br>
+            <select class="form-control" name="sex" id="sex" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+        </div>
+    
+        <div class="col-md-3">
+            <label for="animal-picture">Picture:</label>
+            <br>
+            <input type="file" class="form-control full-width" name="animal-picture" multiple>
+        </div>
+        
+        <div class="col-md-2">
+            <label for="sprayedNeutredCheckbox">Sprayed/Neutred</label>
+            <br>
+            <input type="checkbox" class="form-control" name="sprayedNeutredCheckbox">
+        </div>
+    
+        <div class="col-md-12">
+            <label for="description">Description:</label>
+            <br>
+            <textarea class="form-control full-width" name="description"></textarea>
+        </div>
+    </fieldset>
+    <input type="submit" value="Add">
+    </form>
+</div>
+
